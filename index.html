@@ -559,12 +559,21 @@ async function fetchNews(){
     const seen=new Set();
     const items=all.filter(a=>{if(!a.title||seen.has(a.title))return false;seen.add(a.title);return true})
       .sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,10);
-    if(!items.length){container.innerHTML='<p style="font-size:12px;color:#666">뉴스를 찾지 못했습니다.</p>';btn.disabled=false;return;}
+    if(!items.length) throw new Error('결과 없음');
     const gm=(t,d='')=>{const s=(t+d).toLowerCase();if(s.includes('구글')||s.includes('google'))return{l:'구글',c:'tag-g'};if(s.includes('애플')||s.includes('apple'))return{l:'애플',c:'tag-a'};if(s.includes('삼성'))return{l:'삼성',c:'tag-s'};if(s.includes('원스토어'))return{l:'원스토어',c:'tag-o'};return{l:'기타',c:''};};
     const fd=iso=>{const d=new Date(iso);return`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`;};
     container.innerHTML=items.map(a=>{const{l,c}=gm(a.title,a.description||'');return`<div class="news-card"><div class="news-head"><div class="news-title"><a href="${a.url}" target="_blank" style="color:#111;text-decoration:none">${a.title}</a></div><div class="news-date">${fd(a.publishedAt)}</div></div><div class="news-summary">${a.description||'제목을 클릭하면 원문을 볼 수 있습니다.'}</div><div class="news-tags"><span class="tag ${c}">${l}</span>${a.source?.name?`<span class="ntag">${a.source.name}</span>`:''}</div></div>`;}).join('');
     const now=new Date();document.getElementById('news-date').textContent=`마지막 검색: ${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
-  }catch(e){container.innerHTML=`<p style="font-size:11px;color:#dc2626;padding:8px">뉴스 로드 오류: ${e.message}</p>`;}
+  }catch(e){
+    // CORS 또는 기타 오류 → 저장된 뉴스 표시 + Claude 요청 버튼
+    renderSaved();
+    document.getElementById('news-date').textContent='저장된 뉴스 표시 중';
+    const notice=document.createElement('div');
+    notice.style.cssText='margin-bottom:12px;padding:10px 14px;background:#fefce8;border:1px solid #fde68a;border-radius:8px;font-size:12px;color:#92400e;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';
+    notice.innerHTML=`<span>실시간 뉴스 불러오기가 제한됩니다 (NewsAPI CORS 정책). 아래는 저장된 뉴스입니다.</span>
+      <button onclick="sendPrompt('앱마켓 수수료 최신 뉴스 검색해서 알려줘')" style="padding:5px 12px;font-size:11px;border:1px solid #d97706;border-radius:6px;background:#fff;color:#92400e;cursor:pointer;white-space:nowrap">Claude에게 최신 뉴스 요청 ↗</button>`;
+    container.insertBefore(notice, container.firstChild);
+  }
   btn.disabled=false;
 }
 window.cD=false;window.hD=false;window.nD=false;
