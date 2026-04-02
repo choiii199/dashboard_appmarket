@@ -1,16 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 :root{--g:#34a853;--a:#0071e3;--s:#1428a0;--o:#e8006e}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparent}
+body{font-family:-apple-system,sans-serif;background:transparent}
 
-/* 탭 */
 .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
 .tab{padding:6px 14px;font-size:13px;border:1px solid #ccc;border-radius:8px;background:transparent;color:#666;cursor:pointer;transition:.15s}
 .tab:hover{background:#f5f5f5;color:#333}
 .tab.on{background:#f0f0f0;color:#111;font-weight:500;border-color:#999}
 .sec{display:none}.sec.on{display:block}
 
-/* 헤더 카드 4개 */
 .sum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
 .sum-card{border-radius:10px;padding:14px 16px;border-top:4px solid #ccc}
 .sum-card.g{border-top-color:var(--g);background:#f0faf2}
@@ -21,28 +24,20 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .sum-val{font-size:22px;font-weight:600;color:#111}
 .sum-desc{font-size:11px;color:#888;margin-top:3px}
 
-/* 마켓 카드 그리드 */
 .market-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
-
-/* 마켓 카드 */
 .mc{border-radius:12px;border:1.5px solid #e0e0e0;overflow:hidden;background:#fff}
 .mc.g{border-top:4px solid var(--g)}
 .mc.a{border-top:4px solid var(--a)}
 .mc.s{border-top:4px solid var(--s)}
 .mc.o{border-top:4px solid var(--o)}
 
-/* 카드 헤더 */
 .mc-head{display:flex;align-items:center;gap:9px;padding:14px 16px 12px;border-bottom:1px solid #eee}
-.mc-head img{width:22px;height:22px;border-radius:5px;object-fit:contain;flex-shrink:0;display:block}
 .mc-name{font-size:14px;font-weight:600;color:#111}
 .mc-sub{font-size:11px;color:#888;margin-top:2px}
 .mc-link{font-size:10px;opacity:.5;text-decoration:none;margin-left:4px}
 .mc-link:hover{opacity:1}
 
-/* 섹션 라벨 */
 .fee-section{font-size:10px;font-weight:600;color:#999;text-transform:uppercase;letter-spacing:.6px;padding:10px 16px 4px}
-
-/* 수수료 행 — 박스 스타일 */
 .fee-table{padding:0 12px 4px}
 .fee-row{display:flex;justify-content:space-between;align-items:center;padding:7px 10px;border-radius:7px;margin-bottom:3px;background:#f9f9f9;border:1px solid #ececec}
 .fee-row:hover{background:#f0f0f0;border-color:#d8d8d8}
@@ -57,7 +52,6 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .fv.blue{color:#2563eb}
 .fv.gray{color:#999}
 
-/* 배지 */
 .badge{font-size:10px;padding:1px 6px;border-radius:6px;font-weight:500;white-space:nowrap}
 .badge.old{background:#fef3c7;color:#92400e}
 .badge.new{background:#dbeafe;color:#1d4ed8}
@@ -65,10 +59,8 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .badge.bad{background:#fee2e2;color:#991b1b}
 .badge.gray{background:#f3f4f6;color:#6b7280}
 
-/* 구분선 */
 .divider{height:1px;background:#eee;margin:8px 16px}
 
-/* 토글 박스 (산정근거) */
 .why-btn{display:flex;align-items:center;gap:6px;margin:6px 12px 4px;padding:6px 10px;background:#f8f8f8;border:1px solid #e0e0e0;border-radius:7px;font-size:11px;color:#666;cursor:pointer;width:calc(100% - 24px);text-align:left}
 .why-btn:hover{background:#f0f0f0;color:#333}
 .why-btn .arr{font-size:9px;transition:transform .2s;flex-shrink:0}
@@ -83,10 +75,8 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .wf-r{padding:2px 7px;border-radius:5px;font-size:11px;font-weight:600;background:#dcfce7;color:#15803d;border:1px solid #86efac}
 .wf-op{font-size:12px;color:#888;font-weight:600}
 
-/* note */
 .mc-note{font-size:10px;color:#888;padding:8px 16px 14px;line-height:1.6;border-top:1px solid #f0f0f0;margin-top:4px}
 
-/* 비교표 */
 .ctable{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px}
 .ctable th{padding:8px 10px;text-align:left;font-size:11px;color:#666;font-weight:500;border-bottom:2px solid #e5e7eb;background:#f9fafb}
 .ctable td{padding:8px 10px;border-bottom:1px solid #f0f0f0;color:#111;vertical-align:top}
@@ -94,7 +84,6 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .ctable .cat{font-weight:600;color:#555;font-size:11px}
 .chart-wrap{position:relative;width:100%;height:250px;margin-bottom:16px}
 
-/* 히스토리 */
 .ftag{padding:3px 10px;font-size:11px;border:1px solid #ddd;border-radius:20px;background:transparent;color:#666;cursor:pointer;margin-right:4px;margin-bottom:4px}
 .ftag.on{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd}
 .timeline{position:relative;padding-left:22px;margin-top:12px}
@@ -112,17 +101,17 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .tag-o{background:#ffe4e6;color:#9f1239}
 .tag-l{background:#f3e8ff;color:#6b21a8}
 
-/* 뉴스 */
 .news-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:12px 14px;margin-bottom:10px}
 .news-card:hover{border-color:#c3c9d0;background:#fafafa}
 .news-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:5px}
 .news-title{font-size:13px;font-weight:600;color:#111;line-height:1.4}
+.news-title a{color:#111;text-decoration:none}
+.news-title a:hover{color:#2563eb;text-decoration:underline}
 .news-date{font-size:10px;color:#9ca3af;white-space:nowrap;padding-top:2px;flex-shrink:0}
 .news-summary{font-size:11px;color:#555;line-height:1.6;margin-bottom:6px}
 .news-tags{display:flex;flex-wrap:wrap;gap:3px}
 .ntag{font-size:10px;padding:1px 6px;border-radius:5px;background:#f3f4f6;color:#6b7280}
 
-/* 지역 탭 */
 .rtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
 .rtab{padding:5px 13px;font-size:12px;border:1px solid #ddd;border-radius:20px;background:transparent;color:#666;cursor:pointer}
 .rtab.on{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd;font-weight:500}
@@ -143,10 +132,8 @@ body{font-family:var(--font-sans,-apple-system,sans-serif);background:transparen
 .pill-info{background:#dbeafe;color:#1e40af}
 .pill-bad{background:#fee2e2;color:#991b1b}
 
-/* 공식문서 */
 .doc-section{margin-bottom:20px}
 .doc-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #e5e7eb}
-.doc-head img{width:18px;height:18px;border-radius:4px;object-fit:contain}
 .doc-head-name{font-size:14px;font-weight:600;color:#111}
 .doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
 a.doc-card{display:flex;align-items:flex-start;gap:8px;padding:9px 11px;background:#fff;border:1px solid #e5e7eb;border-radius:9px;text-decoration:none}
@@ -155,11 +142,11 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
 .doc-title{font-size:12px;font-weight:600;color:#111;margin-bottom:2px;line-height:1.3}
 .doc-desc{font-size:10px;color:#6b7280;line-height:1.4}
 
-/* 로딩 */
 .spin{width:14px;height:14px;border:2px solid #ddd;border-top-color:#666;border-radius:50%;animation:sp .8s linear infinite;flex-shrink:0}
 @keyframes sp{to{transform:rotate(360deg)}}
 </style>
-
+</head>
+<body>
 <div style="padding:20px 16px 32px">
 <h1 style="font-size:18px;font-weight:700;color:#111;margin-bottom:4px">앱마켓 결제 수수료 대시보드</h1>
 <p style="font-size:12px;color:#888;margin-bottom:20px">구글 플레이 · 애플 앱스토어 · 삼성 갤럭시스토어 · 원스토어 — 2026년 4월 기준 · 공식 문서 기반</p>
@@ -181,9 +168,7 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
     <div class="sum-card s"><div class="sum-label">삼성 갤럭시스토어</div><div class="sum-val">20%</div><div class="sum-desc">2025.05.15 인하 · 구독 15%</div></div>
     <div class="sum-card o"><div class="sum-label">원스토어</div><div class="sum-val">20%</div><div class="sum-desc">외부결제 시 5% 절감 가능</div></div>
   </div>
-
   <div class="market-grid">
-
     <!-- 구글 -->
     <div class="mc g">
       <div class="mc-head">
@@ -215,7 +200,6 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
       </div>
       <div class="mc-note">공식문서 기준 · 현행: 100만달러 미만 15% / 초과 30% · 한국 결제수수료율 별도 공개 예정 · 신정책 2026.12.31</div>
     </div>
-
     <!-- 애플 -->
     <div class="mc a">
       <div class="mc-head">
@@ -255,7 +239,6 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
       </div>
       <div class="mc-note">공식문서 기준 · EU DMA 별도 체계 · 미국 외부결제 0%는 2025.04 법원명령</div>
     </div>
-
     <!-- 삼성 -->
     <div class="mc s">
       <div class="mc-head">
@@ -276,7 +259,6 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
       </div>
       <div class="mc-note">공식문서 기준 · 갤럭시 기기 전용 (폰·탭·웨어러블·스마트TV) · 개별 계약 개발사는 기존 계약 유지</div>
     </div>
-
     <!-- 원스토어 -->
     <div class="mc o">
       <div class="mc-head">
@@ -299,7 +281,6 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
       </div>
       <div class="mc-note">공식문서 기준 · 외부결제 5%는 4대 마켓 최저 · PG사 연동 필요 · 국내 시장점유율 약 11~12%</div>
     </div>
-
   </div>
 </div>
 
@@ -392,7 +373,7 @@ a.doc-card:hover{border-color:#9ca3af;background:#f9fafb}
 <!-- 최신 뉴스 -->
 <div id="news" class="sec">
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-    <button onclick="fetchNews()" style="padding:6px 14px;font-size:12px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;color:#333">최신 뉴스 불러오기</button>
+    <button id="news-btn" onclick="fetchNews()" style="padding:6px 14px;font-size:12px;border:1px solid #ddd;border-radius:8px;background:#fff;cursor:pointer;color:#333">최신 뉴스 불러오기</button>
     <span id="news-date" style="font-size:11px;color:#9ca3af"></span>
   </div>
   <div id="news-list"></div>
@@ -524,57 +505,90 @@ function buildHistory(f='all'){
 }
 function filterH(f,btn){document.querySelectorAll('.ftag').forEach(t=>t.classList.remove('on'));btn.classList.add('on');buildHistory(f);}
 
+const sc={google:'tag-g',apple:'tag-a',samsung:'tag-s',onestore:'tag-o',law:'tag-l',etc:''};
+
 const savedNews=[
-  {date:'2026년 04월 01일',title:'앱인토스, 인앱광고 수수료 무료 프로모션 종료 (15% 정상 적용)',summary:'토스 앱 플랫폼 앱인토스가 인앱광고 수수료 0% 프로모션을 종료. 4월 1일부터 15% 정상 적용.',tags:['앱인토스','인앱광고'],store:'etc'},
-  {date:'2026년 03월 25일',title:'블로터 ⑤ 크래프톤, 수수료 인하 수혜 "인도가 승부수"',summary:'크래프톤 2025년 앱마켓 수수료 4213억 지급. 인도 BGMI 성장이 수혜 규모를 결정.',tags:['크래프톤','수혜분석'],store:'google'},
-  {date:'2026년 03월 19일',title:'블로터 ① 넷마블, 구글 수수료 인하 최대 수혜주',summary:'모바일 매출 비중 92% 넷마블이 최대 수혜. 2026년 300억·2027년 1000억 절감 전망.',tags:['넷마블','수혜분석'],store:'google'},
-  {date:'2026년 03월 15일',title:'애플, 중국 앱스토어 수수료 30%→25%로 인하',summary:'중국 정부 압박으로 표준 수수료 25%, 소액 개발사 12%로 인하.',tags:['애플','중국'],store:'apple'},
-  {date:'2026년 03월 12일',title:'[단독] 구글, 국내 253개 게임사 집단조정 합의 의사',summary:'팡스카이 포함 253개 게임사 집단조정에 구글 합의. 2조원대 환급 가능성.',tags:['집단조정','환급'],store:'law'},
-  {date:'2026년 03월 09일',title:'넷마블 주가 13% 급등, 구글 수수료 인하 기대감',summary:'구글 플레이 수수료 인하 발표 이후 넷마블 주가 급등.',tags:['넷마블','주가'],store:'google'},
-  {date:'2026년 03월 06일',title:'경실련 "구글 수수료 인하는 기만, 3자결제 수수료 면제해야"',summary:'구글결제 사용 시 실질 수수료 25%로 5%p 인하에 불과. 외부결제 격차 사실상 인앱결제 강제.',tags:['경실련','비판'],store:'google'},
-  {date:'2026년 03월 05일',title:'구글, 인앱결제 수수료 20%+결제수수료 5% 분리 체계 공식 발표',summary:'서비스수수료+결제수수료 분리. 외부결제 전면 허용. 구독 10%. 에픽 분쟁 합의.',tags:['구글','수수료개편'],store:'google'}
+  {date:'2026년 04월 01일',title:'앱인토스, 인앱광고 수수료 무료 프로모션 종료 (15% 정상 적용)',summary:'토스 앱 플랫폼 앱인토스가 인앱광고 수수료 0% 프로모션을 종료. 4월 1일부터 15% 정상 적용.',tags:['앱인토스','인앱광고'],store:'etc',url:''},
+  {date:'2026년 03월 25일',title:'블로터 ⑤ 크래프톤, 수수료 인하 수혜 "인도가 승부수"',summary:'크래프톤 2025년 앱마켓 수수료 4213억 지급. 인도 BGMI 성장이 수혜 규모를 결정.',tags:['크래프톤','수혜분석'],store:'google',url:''},
+  {date:'2026년 03월 19일',title:'블로터 ① 넷마블, 구글 수수료 인하 최대 수혜주',summary:'모바일 매출 비중 92% 넷마블이 최대 수혜. 2026년 300억·2027년 1000억 절감 전망.',tags:['넷마블','수혜분석'],store:'google',url:''},
+  {date:'2026년 03월 15일',title:'애플, 중국 앱스토어 수수료 30%→25%로 인하',summary:'중국 정부 압박으로 표준 수수료 25%, 소액 개발사 12%로 인하.',tags:['애플','중국'],store:'apple',url:''},
+  {date:'2026년 03월 12일',title:'[단독] 구글, 국내 253개 게임사 집단조정 합의 의사',summary:'팡스카이 포함 253개 게임사 집단조정에 구글 합의. 2조원대 환급 가능성.',tags:['집단조정','환급'],store:'law',url:''},
+  {date:'2026년 03월 09일',title:'넷마블 주가 13% 급등, 구글 수수료 인하 기대감',summary:'구글 플레이 수수료 인하 발표 이후 넷마블 주가 급등.',tags:['넷마블','주가'],store:'google',url:''},
+  {date:'2026년 03월 06일',title:'경실련 "구글 수수료 인하는 기만, 3자결제 수수료 면제해야"',summary:'구글결제 사용 시 실질 수수료 25%로 5%p 인하에 불과. 외부결제 격차 사실상 인앱결제 강제.',tags:['경실련','비판'],store:'google',url:''},
+  {date:'2026년 03월 05일',title:'구글, 인앱결제 수수료 20%+결제수수료 5% 분리 체계 공식 발표',summary:'서비스수수료+결제수수료 분리. 외부결제 전면 허용. 구독 10%. 에픽 분쟁 합의.',tags:['구글','수수료개편'],store:'google',url:''}
 ];
-const sc={google:'tag-g',apple:'tag-a',samsung:'tag-s',onestore:'tag-o',law:'tag-l'};
-function renderSaved(){
-  document.getElementById('news-list').innerHTML=savedNews.map(n=>`
+
+function renderNewsCards(items){
+  return items.map(n=>`
     <div class="news-card">
-      <div class="news-head"><div class="news-title">${n.title}</div><div class="news-date">${n.date}</div></div>
+      <div class="news-head">
+        <div class="news-title">${n.url
+          ? `<a href="${n.url}" target="_blank" rel="noopener">${n.title} <span style="font-size:10px;color:#9ca3af">↗</span></a>`
+          : n.title
+        }</div>
+        <div class="news-date">${n.date}</div>
+      </div>
       <div class="news-summary">${n.summary}</div>
-      <div class="news-tags"><span class="tag ${sc[n.store]||''}">${sn[n.store]||n.store||'기타'}</span>${(n.tags||[]).map(t=>`<span class="ntag">${t}</span>`).join('')}</div>
+      <div class="news-tags">
+        <span class="tag ${sc[n.store]||''}">${sn[n.store]||n.store||'기타'}</span>
+        ${(n.tags||[]).map(t=>`<span class="ntag">${t}</span>`).join('')}
+      </div>
     </div>`).join('');
+}
+
+function renderSaved(){
+  document.getElementById('news-list').innerHTML=renderNewsCards(savedNews);
   document.getElementById('news-date').textContent='마지막 업데이트: 2026년 4월 1일';
 }
+
 async function fetchNews(){
   const container=document.getElementById('news-list');
-  const btn=document.querySelector('#news button');
-  const key='fb997121eb664b3897b816f07c39a4b2';
+  const btn=document.getElementById('news-btn');
   btn.disabled=true;
-  container.innerHTML='<div style="display:flex;align-items:center;gap:8px;padding:10px;font-size:12px;color:#666"><div class="spin"></div>최신 뉴스 검색 중...</div>';
-  const all=[];
+  container.innerHTML='<div style="display:flex;align-items:center;gap:8px;padding:10px;font-size:12px;color:#666"><div class="spin"></div>Claude AI로 최신 뉴스 검색 중...</div>';
   try{
-    for(const q of ['앱마켓 수수료','인앱결제 수수료','구글 플레이 수수료','애플 앱스토어 수수료']){
-      const r=await fetch(`https://newsapi.org/v2/everything?q=${encodeURIComponent(q)}&language=ko&sortBy=publishedAt&pageSize=5&apiKey=${key}`);
-      const d=await r.json();if(d.articles)all.push(...d.articles);
-    }
-    const seen=new Set();
-    const items=all.filter(a=>{if(!a.title||seen.has(a.title))return false;seen.add(a.title);return true})
-      .sort((a,b)=>new Date(b.publishedAt)-new Date(a.publishedAt)).slice(0,10);
-    if(!items.length) throw new Error('결과 없음');
-    const gm=(t,d='')=>{const s=(t+d).toLowerCase();if(s.includes('구글')||s.includes('google'))return{l:'구글',c:'tag-g'};if(s.includes('애플')||s.includes('apple'))return{l:'애플',c:'tag-a'};if(s.includes('삼성'))return{l:'삼성',c:'tag-s'};if(s.includes('원스토어'))return{l:'원스토어',c:'tag-o'};return{l:'기타',c:''};};
-    const fd=iso=>{const d=new Date(iso);return`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`;};
-    container.innerHTML=items.map(a=>{const{l,c}=gm(a.title,a.description||'');return`<div class="news-card"><div class="news-head"><div class="news-title"><a href="${a.url}" target="_blank" style="color:#111;text-decoration:none">${a.title}</a></div><div class="news-date">${fd(a.publishedAt)}</div></div><div class="news-summary">${a.description||'제목을 클릭하면 원문을 볼 수 있습니다.'}</div><div class="news-tags"><span class="tag ${c}">${l}</span>${a.source?.name?`<span class="ntag">${a.source.name}</span>`:''}</div></div>`;}).join('');
-    const now=new Date();document.getElementById('news-date').textContent=`마지막 검색: ${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:2000,
+        tools:[{type:'web_search_20250305',name:'web_search'}],
+        messages:[{role:'user',content:`앱마켓 수수료 관련 최신 뉴스를 검색해서 아래 JSON 형식으로만 응답해줘. 마크다운 코드블록이나 다른 텍스트 없이 JSON 배열만 출력:
+[
+  {
+    "date": "2026년 X월 X일",
+    "title": "뉴스 제목",
+    "url": "https://실제기사URL",
+    "summary": "요약 2~3문장",
+    "store": "google 또는 apple 또는 samsung 또는 onestore 또는 law 또는 etc 중 하나",
+    "tags": ["태그1","태그2"]
+  }
+]
+최근 뉴스 8개를 구글플레이, 애플앱스토어, 삼성갤럭시스토어, 원스토어 관련해서 찾아줘. 반드시 실제 기사 URL을 포함해줘.`}]
+      })
+    });
+    const data=await res.json();
+    const texts=(data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    if(!texts) throw new Error('응답 없음');
+    const clean=texts.replace(/```json|```/g,'').trim();
+    const items=JSON.parse(clean);
+    if(!Array.isArray(items)||!items.length) throw new Error('파싱 실패');
+    container.innerHTML=renderNewsCards(items);
+    const now=new Date();
+    document.getElementById('news-date').textContent=`마지막 검색: ${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
   }catch(e){
-    // CORS 또는 기타 오류 → 저장된 뉴스 표시 + Claude 요청 버튼
     renderSaved();
     document.getElementById('news-date').textContent='저장된 뉴스 표시 중';
     const notice=document.createElement('div');
-    notice.style.cssText='margin-bottom:12px;padding:10px 14px;background:#fefce8;border:1px solid #fde68a;border-radius:8px;font-size:12px;color:#92400e;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';
-    notice.innerHTML=`<span>실시간 뉴스 불러오기가 제한됩니다 (NewsAPI CORS 정책). 아래는 저장된 뉴스입니다.</span>
-      <button onclick="sendPrompt('앱마켓 수수료 최신 뉴스 검색해서 알려줘')" style="padding:5px 12px;font-size:11px;border:1px solid #d97706;border-radius:6px;background:#fff;color:#92400e;cursor:pointer;white-space:nowrap">Claude에게 최신 뉴스 요청 ↗</button>`;
-    container.insertBefore(notice, container.firstChild);
+    notice.style.cssText='margin-bottom:12px;padding:10px 14px;background:#fefce8;border:1px solid #fde68a;border-radius:8px;font-size:12px;color:#92400e;line-height:1.6';
+    notice.textContent=`뉴스 불러오기 실패 (${e.message}). 저장된 뉴스를 표시합니다.`;
+    container.insertBefore(notice,container.firstChild);
   }
   btn.disabled=false;
 }
+
 window.cD=false;window.hD=false;window.nD=false;
 </script>
+</body>
+</html>
